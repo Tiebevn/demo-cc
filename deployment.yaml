@@ -16,12 +16,19 @@ spec:
         image: wordpress
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
         env:
         - name: WORDPRESS_DB_HOST
           value: db-service
         - name: WORDPRESS_DB_PASSWORD
           value: password123
         - name: WORDPRESS_DB_USER
-          value: postgres
+          value: mysql
         - name: WORDPRESS_DB_NAME
-          value: postgres
+          value: mysql
